@@ -1,3 +1,5 @@
+<?php
+
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
@@ -26,6 +28,7 @@ class ReportController extends Controller
     {
         $data = $request->validate([
             'presentation_id' => 'required|exists:presentations,id',
+            'item' => 'required|integer',
             'cliente' => 'required|string|max:255',
             'responsable_elaboracion' => 'required|string|max:255',
             'fecha_revision_interna' => 'nullable|date',
@@ -51,6 +54,7 @@ class ReportController extends Controller
     {
         $data = $request->validate([
             'presentation_id' => 'required|exists:presentations,id',
+            'item' => 'required|integer',
             'cliente' => 'required|string|max:255',
             'responsable_elaboracion' => 'required|string|max:255',
             'fecha_revision_interna' => 'nullable|date',

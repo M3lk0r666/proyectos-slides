@@ -1,3 +1,5 @@
+<?php
+
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
@@ -34,7 +36,16 @@ class ProjectController extends Controller
             'estatus_color' => 'required|string|max:50',
             'fecha_programada' => 'nullable|date',
             'horario' => 'nullable|string|max:100',
+            'cliente_logo'=>'nullable|image|max:2048'
         ]);
+
+        if($request->hasFile('cliente_logo')){
+
+            $data['cliente_logo_path'] =
+            $request->file('cliente_logo')
+            ->store('clientes','public');
+            
+            }
 
         Project::create($data);
 
@@ -75,7 +86,16 @@ class ProjectController extends Controller
             'estatus_color' => 'required|string|max:50',
             'fecha_programada' => 'nullable|date',
             'horario' => 'nullable|string|max:100',
+            'cliente_logo'=>'nullable|image|max:2048'
         ]);
+
+        if($request->hasFile('cliente_logo')){
+
+            $data['cliente_logo_path'] =
+            $request->file('cliente_logo')
+            ->store('clientes','public');
+            
+            }
 
         $project->update($data);
 
@@ -84,10 +104,17 @@ class ProjectController extends Controller
             ->with('success', 'Proyecto actualizado correctamente');
     }
 
+    
+
+
+
+
+
     public function destroy(Project $project)
     {
         $project->delete();
 
         return back()->with('success', 'Proyecto eliminado');
     }
+    
 }

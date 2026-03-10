@@ -90,4 +90,29 @@ class PresentationController extends Controller
             ->route('admin.presentations.index')
             ->with('success', 'Presentación eliminada');
     }
+
+    public function editor(Presentation $presentation)
+    {
+        session(['active_presentation' => $presentation->id]);
+
+        $presentation->load([
+            'projects.activities',
+            'projects.keyPoints',
+            'projects.missingItems',
+            'projects.staffNetjer',
+            'projects.clientContacts',
+            'reports',
+            'ticketAgents.items'
+        ]);
+
+        $stats = [
+            'projects' => $presentation->projects->count(),
+            'activities' => $presentation->projects->flatMap->activities->count(),
+            'missing' => $presentation->projects->flatMap->missingItems->count(),
+            'reports' => $presentation->reports->count(),
+            'tickets' => $presentation->ticketAgents->sum('asignados')
+        ];
+
+        return view('admin.presentations.editor', compact('presentation','stats'));
+    }
 }

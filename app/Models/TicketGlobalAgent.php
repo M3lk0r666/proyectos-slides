@@ -32,4 +32,9 @@ class TicketGlobalAgent extends Model
     {
         return $this->hasMany(TicketAgentItem::class);
     }
+
+    public function items()
+    {
+        return $this->hasMany(TicketAgentItem::class);
+    }
 }

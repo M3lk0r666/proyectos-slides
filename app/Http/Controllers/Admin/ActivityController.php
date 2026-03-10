@@ -1,3 +1,5 @@
+<?php
+
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
@@ -65,9 +67,16 @@ class ActivityController extends Controller
 
         $activity->update($data);
 
-        return redirect()
+        
+    if($request->expectsJson()){
+        return response()->json(['ok'=>true]);
+    }
+
+    return redirect()->back();
+
+        /* return redirect()
             ->route('admin.activities.index')
-            ->with('success', 'Actividad actualizada correctamente');
+            ->with('success', 'Actividad actualizada correctamente'); */
     }
 
     public function destroy(Activity $activity)

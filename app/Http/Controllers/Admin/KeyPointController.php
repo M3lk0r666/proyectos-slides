@@ -1,3 +1,5 @@
+<?php
+
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
@@ -10,6 +12,7 @@ class KeyPointController extends Controller
     public function index()
     {
         $items = KeyPoint::with('project')->orderBy('orden')->get();
+        //return $items;
         return view('admin.key-points.index', compact('items'));
     }
 

@@ -29,4 +29,14 @@ class Presentation extends Model
     {
         return $this->hasMany(Announcement::class);
     }
+
+    public function staffNetjer()
+    {
+        return $this->hasMany(StaffNetjer::class);
+    }
+
+    public function ticketAgents()
+    {
+        return $this->hasMany(TicketGlobalAgent::class);
+    }
 }

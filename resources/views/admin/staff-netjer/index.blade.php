@@ -1,27 +1,78 @@
-<div class="space-y-4">
-    <div>
-        <label class="font-semibold">Proyecto</label>
-        <select name="project_id" class="w-full border rounded px-3 py-2">
-            @foreach($projects as $p)
-                <option value="{{ $p->id }}"
-                    @selected(old('project_id', $client_contact->project_id ?? '') == $p->id)>
-                    {{ $p->nombre }}
-                </option>
-            @endforeach
-        </select>
+@extends('admin.layouts.app')
+
+@section('title', 'Personal Netjer')
+
+@section('content')
+
+    <div class="flex justify-between items-center mb-6">
+        <h1 class="text-2xl font-bold">Personal Netjer</h1>
+
+        <a href="{{ route('admin.staff-netjer.create') }}" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">
+            Nuevo registro
+        </a>
     </div>
 
-    <div>
-        <label class="font-semibold">Nombre</label>
-        <input name="nombre"
-               value="{{ old('nombre', $client_contact->nombre ?? '') }}"
-               class="w-full border rounded px-3 py-2">
-    </div>
+    <table class="w-full bg-white shadow rounded">
 
-    <div>
-        <label class="font-semibold">Puesto</label>
-        <input name="puesto"
-               value="{{ old('puesto', $client_contact->puesto ?? '') }}"
-               class="w-full border rounded px-3 py-2">
-    </div>
-</div>
+        <thead class="bg-gray-200">
+            <tr>
+                <th class="p-3 text-left">Proyecto</th>
+                <th class="p-3 text-left">Nombre</th>
+                <th class="p-3 text-left">Rol</th>
+                <th class="p-3 text-right">Acciones</th>
+            </tr>
+        </thead>
+
+        <tbody>
+
+            @forelse($items as $item)
+                <tr class="border-t">
+
+                    <td class="p-3">
+                        {{ $item->project->nombre }}
+                    </td>
+
+                    <td class="p-3">
+                        {{ $item->nombre }}
+                    </td>
+
+                    <td class="p-3">
+                        {{ $item->rol }}
+                    </td>
+
+                    <td class="p-3 text-right space-x-3">
+
+                        <a href="{{ route('admin.staff-netjer.edit', $item) }}" class="text-blue-600 hover:underline">
+                            Editar
+                        </a>
+
+                        <form action="{{ route('admin.staff-netjer.destroy', $item) }}" method="POST" class="inline"
+                            onsubmit="return confirm('¿Eliminar registro?')">
+
+                            @csrf
+                            @method('DELETE')
+
+                            <button class="text-red-600 hover:underline">
+                                Eliminar
+                            </button>
+
+                        </form>
+
+                    </td>
+
+                </tr>
+
+            @empty
+
+                <tr>
+                    <td colspan="4" class="p-6 text-center text-gray-500">
+                        No hay registros
+                    </td>
+                </tr>
+            @endforelse
+
+        </tbody>
+
+    </table>
+
+@endsection
