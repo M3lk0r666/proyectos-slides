@@ -1,0 +1,287 @@
+.reveal {
+    background-color: #fcfcfc;
+    /*min-height: 100vh;*/
+}
+
+/* .reveal .slides {
+    background-image: url("../assets/media/back-corpo.jpg");
+    background-size: cover;
+    background-position: center;
+} */
+
+/* .reveal .slides {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.85)),
+        url("../assets/media/back-corpo.jpg");
+    background-size: cover;
+    background-position: center;
+} */
+
+.reveal .slides {
+    background-image: linear-gradient(
+            rgba(255, 255, 255, 0.7),
+            rgba(255, 255, 255, 0.7)
+        ),
+        url("../media/back-corpo.jpg");
+    background-size: cover;
+    background-position: center;
+    max-width: 1400px;
+    margin: auto;
+}
+
+.reveal .slides section {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding: 60px 80px;
+    height: 100%;
+    font-size: 18px;
+}
+
+/* márgenes slide */
+
+.reveal section {
+    overflow: visible;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding: 60px;
+    /*Esto es temporal para ver el limite del slide*/
+    outline: 2px dashed red;
+}
+
+/* títulos */
+
+.reveal h1 {
+    font-size: 3.5rem;
+    font-weight: 700;
+}
+
+.reveal h2 {
+    font-size: 2.5rem;
+    font-weight: 700;
+}
+
+/* tablas */
+
+.reveal table {
+    font-size: 0.8rem;
+}
+
+/* .table-netjer {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed;
+} */
+
+.table-netjer thead {
+    background: #e6a23c;
+    color: #000;
+}
+
+/* .table-netjer th {
+    padding: 10px;
+    border: 1px solid #ddd;
+    text-align: left;
+
+    background: #d9a24a;
+    color: #000;
+}
+
+.table-netjer td {
+    padding: 10px;
+    border: 1px solid #e2e2e2;
+
+    border-bottom: 1px solid #ddd;
+} */
+.table-netjer {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed;
+}
+
+.table-netjer th {
+    background: #d9a24a;
+    color: #000;
+}
+
+.table-netjer td {
+    border-bottom: 1px solid #ddd;
+}
+
+/* barra lateral */
+
+/* .slide-status {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: rotate(-90deg);
+    background: #6cb33f;
+    color: white;
+    padding: 8px 20px;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+} */
+
+/* .slide-status {
+    position: absolute;
+    right: 0;
+    top: 40%;
+    text-transform: uppercase;
+    background: #8bc34a;
+    color: white;
+
+    padding: 20px 10px;
+    font-size: 0.9rem;
+    letter-spacing: 4px;
+
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+} */
+.slide-status {
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: 100%;
+
+    background: #8bc34a;
+    color: white;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 20px 8px;
+
+    writing-mode: vertical-rl;
+    text-orientation: upright;
+
+    text-transform: uppercase;
+
+    font-size: 0.9rem;
+    letter-spacing: 4px;
+    font-weight: 600;
+
+    transform: none;
+
+    border-radius: 6px 0 0 6px;
+    box-shadow: -3px 0 8px rgba(0, 0, 0, 0.15);
+}
+
+.slide-content {
+    margin-top: 40px;
+}
+
+/* logo */
+
+.slide-logo {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    height: 40px;
+}
+
+/*lo que vien de la presen de stitch*/
+
+.leaf-shape {
+    border-radius: 0 24px 0 24px;
+}
+.leaf-shape-reverse {
+    border-radius: 24px 0 24px 0;
+}
+.timeline-stem {
+    width: 4px;
+    background: linear-gradient(
+        to bottom,
+        #8bc34a,
+        #26a69a,
+        #2196f3,
+        #3f51b5,
+        #ab47bc
+    );
+}
+
+.timeline-line {
+    position: absolute;
+    left: 8px;
+    top: 0;
+    bottom: 0;
+    width: 4px;
+    background: #22c55e;
+}
+
+.timeline-dot {
+    position: absolute;
+    left: -6px;
+    top: 6px;
+    width: 14px;
+    height: 14px;
+    background: #16a34a;
+    border-radius: 50%;
+}
+
+/* Colors algo*/
+.bg-accent-green {
+    background: #84cc16;
+}
+.bg-accent-teal {
+    background: #14b8a6;
+}
+.bg-accent-blue {
+    background: #3b82f6;
+}
+.bg-accent-dark-blue {
+    background: #1e40af;
+}
+.bg-accent-purple {
+    background: #a855f7;
+}
+
+.border-accent-green {
+    border-color: #84cc16;
+}
+.border-accent-teal {
+    border-color: #14b8a6;
+}
+.border-accent-blue {
+    border-color: #3b82f6;
+}
+.border-accent-dark-blue {
+    border-color: #1e40af;
+}
+.border-accent-purple {
+    border-color: #a855f7;
+}
+
+.text-accent-green {
+    color: #84cc16;
+}
+.text-accent-teal {
+    color: #14b8a6;
+}
+.text-accent-blue {
+    color: #3b82f6;
+}
+.text-accent-dark-blue {
+    color: #1e40af;
+}
+.text-accent-purple {
+    color: #a855f7;
+}
+
+/* TItulos con subrayado*/
+.titulo-con-linea {
+    position: relative;
+    display: inline-block;
+    padding-bottom: 0.25rem; /* espacio entre texto y línea */
+}
+.titulo-con-linea::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%; /* línea más corta */
+    height: 3px; /* grosor línea */
+    background-color: #f69d18; /* verde Tailwind emerald-500 */
+    border-radius: 2px;
+}

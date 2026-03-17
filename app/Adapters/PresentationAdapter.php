@@ -20,10 +20,12 @@ class PresentationAdapter
                 'cliente' => [
                     'nombre' => $project->cliente_nombre,
                     'logo' => $project->cliente_logo_path,
+                    'color' => $project->cliente_color ?? '#111827',
                 ],
                 'nombre' => $project->nombre,
                 'tecnologia' => $project->tecnologia,
-                'fecha_programada' => optional($project->fecha_programada)->format('d/m/Y'),
+                /* 'fecha_programada' => optional($project->fecha_programada)->format('d/m/Y'), */
+                'fecha_programada' => $project->fecha_programada ? $project->fecha_programada->format('d/m/Y') : null,
                 'horario' => $project->horario,
                 'estatus' => [
                     'label' => $project->estatus_label,

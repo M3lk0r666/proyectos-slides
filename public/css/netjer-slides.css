@@ -1,0 +1,121 @@
+body {
+    background: red !important;
+}
+
+.reveal {
+    background-color: #0f172a;
+    /*min-height: 100vh;*/
+}
+
+/* .reveal .slides {
+    background-image: url("../assets/media/back-corpo.jpg");
+    background-size: cover;
+    background-position: center;
+} */
+
+/* .reveal .slides {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.85)),
+        url("../assets/media/back-corpo.jpg");
+    background-size: cover;
+    background-position: center;
+} */
+
+.reveal .slides {
+    background-image: linear-gradient(
+            rgba(255, 255, 255, 0.7),
+            rgba(255, 255, 255, 0.7)
+        ),
+        url("../assets/media/back-corpo.jpg");
+    background-size: cover;
+    background-position: center;
+}
+
+/* márgenes slide */
+
+.reveal section {
+    padding: 60px;
+    overflow: visible;
+}
+
+/* títulos */
+
+.reveal h1 {
+    font-size: 3.5rem;
+    font-weight: 700;
+}
+
+.reveal h2 {
+    font-size: 2.5rem;
+    font-weight: 700;
+}
+
+/* tablas */
+
+.reveal table {
+    font-size: 0.8rem;
+}
+
+.table-netjer {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.85rem;
+}
+
+.table-netjer thead {
+    background: #e6a23c;
+    color: #000;
+}
+
+.table-netjer th {
+    padding: 10px;
+    border: 1px solid #ddd;
+    text-align: left;
+}
+
+.table-netjer td {
+    padding: 10px;
+    border: 1px solid #e2e2e2;
+}
+
+/* barra lateral */
+
+.slide-status {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: rotate(-90deg);
+    background: #6cb33f;
+    color: white;
+    padding: 8px 20px;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+}
+
+/* logo */
+
+.slide-logo {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    height: 40px;
+}
+
+/*lo que vien de la presen de stitch*/
+
+.leaf-shape {
+    border-radius: 0 24px 0 24px;
+}
+.leaf-shape-reverse {
+    border-radius: 24px 0 24px 0;
+}
+.timeline-stem {
+    width: 4px;
+    background: linear-gradient(
+        to bottom,
+        #8bc34a,
+        #26a69a,
+        #2196f3,
+        #3f51b5,
+        #ab47bc
+    );
+}

@@ -6,6 +6,12 @@ use Illuminate\Database\Eloquent\Model;
 
 class Project extends Model
 {
+    protected $casts = [
+        'fecha_programada' => 'date',
+        'created_at' => 'datetime',
+        'updated_at' => 'datetime',
+    ];
+    
     protected $fillable = [
         'presentation_id',
         'cliente_nombre',

@@ -32,4 +32,9 @@ class PresentationService
 
         return PresentationAdapter::toArray($presentation);
     }
+
+    public function build(Presentation $presentation): array
+    {
+        return PresentationAdapter::toArray($presentation);
+    }
 }

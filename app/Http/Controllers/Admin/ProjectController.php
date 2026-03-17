@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Project;
 use App\Models\Presentation;
 use Illuminate\Http\Request;
+use App\Helpers\ColorHelper;
 
 class ProjectController extends Controller
 {
@@ -39,13 +40,26 @@ class ProjectController extends Controller
             'cliente_logo'=>'nullable|image|max:2048'
         ]);
 
-        if($request->hasFile('cliente_logo')){
+        //antes del color helper
+        /* if($request->hasFile('cliente_logo')){
 
             $data['cliente_logo_path'] =
             $request->file('cliente_logo')
             ->store('clientes','public');
             
+            } */
+
+            if ($request->hasFile('cliente_logo')) {
+                $path = $request->file('cliente_logo')->store('clientes','public');      
+                $color = ColorHelper::getDominantColor(
+                    storage_path('app/public/'.$path)
+                );
+                $project->cliente_logo_path = $path;
+                $project->cliente_color = $color;
             }
+
+
+
 
         Project::create($data);
 
@@ -103,12 +117,6 @@ class ProjectController extends Controller
             ->route('admin.projects.index')
             ->with('success', 'Proyecto actualizado correctamente');
     }
-
-    
-
-
-
-
 
     public function destroy(Project $project)
     {
